@@ -1,0 +1,13 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+body { padding-top: 50px; }
+
+#error_explanation {
+  color: #f00;
+  padding-top: 10px;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
