@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
+    return nil if user.nil?
     return user if BCrypt::Password.new(user.password_digest).is_password?(password)
   end
   

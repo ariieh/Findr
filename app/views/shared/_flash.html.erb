@@ -1,0 +1,17 @@
+<% if flash %>
+<div class="container">
+<% flash.each do |key, value| %>
+  <% if value.is_a?(String) %>
+	<div id="error_explanation">
+  	  <%= value %>
+    </div>
+  <% else %>
+	<% value.each do |message| %>
+    <div id="error_explanation">
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+<% end %>
