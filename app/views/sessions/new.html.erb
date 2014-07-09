@@ -3,4 +3,13 @@
   <%= render partial: "shared/user" %>
   
   <input type="submit" value="Sign In">
+  <button id="sign-in-button" onclick="fillField()">Demo User</button>
+  
 </form>
+
+<script>
+function fillField(){
+	document.getElementById('input-username').value = 'Demo';
+	document.getElementById('input-password').value = 'demopassword';
+}
+</script>
