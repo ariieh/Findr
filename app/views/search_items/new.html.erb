@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#submit').click(function() {
+			$('#spinner').show();
+		});
+	});
+		
+</script>
+
+<h1>Search</h1>
+<form action="<%= search_items_url %>" method="post">
+    <%= auth_token %>
+	
+	<label>Gimme your address!
+		<div class="input-group">
+			<input type="text" name="search[address]" class="form-control" placeholder="Address">
+		</div>
+	</label>
+
+	<br><br>
+
+	<label>What're you looking for?
+		<div class="select-style">
+		  <select>
+		    <option name="search[type]" value="wifi">Wifi</option>
+		    <!-- <option value="search[type]" value="bathroom">Public Bathrooms</option>
+		    <option value="search[type]" value="water">Water Fountains</option> -->
+		  </select>
+		</div>
+	</label>
+	
+	<br><br>
+
+	<input id="submit" type="submit" value="Submit">
+</form>
+
+<br><br>
+
+<div id="spinner" style="display:none;">
+	<h3>Loading!</h3><h4>Give me a second here...</h4><br>
+	<img src="/assets/spinner.gif" alt="Spinner" >
+</div>

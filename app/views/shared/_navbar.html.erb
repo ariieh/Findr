@@ -5,6 +5,9 @@
       <li <%= "class=active" if current_page?(root_url) %>>
         <a href="/">Home</a>
       </li>
+	  <li <%= "class=active" if params["controller"] == "search_items" %>>
+		<a href="/search/new">Search</a>
+	  </li>
     </ul>
     
     <ul class="nav navbar-nav navbar-right">

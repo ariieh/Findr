@@ -1,17 +1,14 @@
-<% if flash %>
-<div class="container">
+<% if !flash.empty? %>
+<div class="container" id="alerts">
 <% flash.each do |key, value| %>
-  <% if value.is_a?(String) %>
-	<div id="error_explanation">
-  	  <%= value %>
-    </div>
-  <% else %>
 	<% value.each do |message| %>
-    <div id="error_explanation">
+	<% next if message.include?("Password is too short") && value.include?("Password can't be blank") %>
+	
+    <div class="alert alert-danger">
       <%= message %>
     </div>
+		
     <% end %>
-  <% end %>
 <% end %>
 </div>
 <% end %>

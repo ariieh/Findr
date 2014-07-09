@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_if_correct_user, :only => [:show]
+  
   def new
   end
   
@@ -22,5 +24,13 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+  
+  def check_if_correct_user
+    @user = User.find(params[:id])
+    unless signed_in? && current_user.id == @user.id
+      flash[:errors] = ["You need to sign in!"]
+      redirect_to new_session_url
+    end
   end
 end

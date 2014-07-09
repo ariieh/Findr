@@ -1,0 +1,23 @@
+<% if searches.empty? %>
+	<br>
+    <div class="alert alert-warning">
+      Nothing found for that address!
+    </div>
+<% else %>
+	<% searches.each do |search| %>
+		<br>
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		      <h3 class="panel-title"><span class="glyphicon glyphicon-pushpin"></span><%= " #{search.name}" %></h3>
+		    </div>
+		    <div class="panel-body">
+			  <%= search.address if search.address %><br>
+			  <%= search.phone_number if search.phone_number %><br>
+			  <% if search.url %>
+				  <a href="<%= search.url %>"><%= search.url %></a><br>
+			  <% end %>
+			  <%= "Distance: #{search.distance} miles" %>
+		    </div>
+		</div>
+	<% end %>
+<% end %>

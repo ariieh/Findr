@@ -1,19 +1,38 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 
-body { padding-top: 50px; }
-
-#error_explanation {
-  color: #f00;
-  padding-top: 10px;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
+body { 
+	padding-top: 50px;
 }
 
-.glyphicon {
+.glyphicon-search {
 	font-size: 250px;
 	float: right;
   padding-right: 250px;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 193px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: white url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+#alerts{
+	padding-top: 20px;
 }
