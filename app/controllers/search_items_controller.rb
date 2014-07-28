@@ -14,11 +14,9 @@ class SearchItemsController < ApplicationController
       flash.now[:errors] = ["Hmm, invalid address. Try again!"]
       render :new
     else
-    
-      
       @address = address_results[:address]
       @zip = address_results[:zip]
-      @searches = (SearchItem.where(address: @address) || [])
+      @searches = (SearchItem.where(origin: @address) || [])
     
       if @searches.length == 0
         searches = SearchItem.wifi_locations(@address, @zip)
@@ -27,6 +25,7 @@ class SearchItemsController < ApplicationController
           search_item = SearchItem.new()
           search_item.name = search.shift
           search_item.address = search.shift
+          search_item.origin = @address
           search_item.distance = search.pop
           search_item.search_type = "wifi"
           search.each do |el|
