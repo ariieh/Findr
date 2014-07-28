@@ -15,16 +15,18 @@ class SearchItemsController < ApplicationController
       render :new
     else
     
+      
       @address = address_results[:address]
       @zip = address_results[:zip]
       @searches = (SearchItem.where(address: @address) || [])
     
       if @searches.length == 0
         searches = SearchItem.wifi_locations(@address, @zip)
+
         searches.each do |search|
           search_item = SearchItem.new()
           search_item.name = search.shift
-          search_item.address = @address
+          search_item.address = search.shift
           search_item.distance = search.pop
           search_item.search_type = "wifi"
           search.each do |el|
